@@ -42,19 +42,17 @@ export const useCards = defineStore("card", {
       const firstCard = this.cards[this.selectedIndexes[0]];
       const secondCard = this.cards[this.selectedIndexes[1]];
 
-      if (firstCard.number === secondCard.number) {
-        setTimeout(() => {
+      // アニメーションの為、時間差をつけている
+      setTimeout(() => {
+        if (firstCard.number === secondCard.number) {
           firstCard.isPaired = true;
           secondCard.isPaired = true;
-          this.selectedIndexes = [];
-        }, 1000);
-      } else {
-        setTimeout(() => {
+        } else {
           firstCard.isTurned = false;
           secondCard.isTurned = false;
-          this.selectedIndexes = [];
-        }, 1000);
-      }
+        }
+        this.selectedIndexes = [];
+      }, 1000);
     },
   },
 });
