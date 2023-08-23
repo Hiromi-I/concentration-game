@@ -1,18 +1,11 @@
 <script setup lang="ts">
-import { reactive } from "vue";
-import type { Card } from "@/types/card";
 import CardItem from "@/components/CardItem.vue";
+import { useCards } from "@/stores/cards";
 
-let cards: Card[] = reactive([
-  { number: 1, isTurned: false, isPaired: false },
-  { number: 2, isTurned: false, isPaired: false },
-  { number: 3, isTurned: false, isPaired: false },
-  { number: 4, isTurned: false, isPaired: false },
-  { number: 5, isTurned: false, isPaired: false },
-]);
+const { cards, turnCard } = useCards();
 
 const onCardClick = (index: number) => {
-  cards[index].isTurned = !cards[index].isTurned;
+  turnCard(index);
 };
 </script>
 
