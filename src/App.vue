@@ -72,6 +72,7 @@
     #f66 0,
     #f66 6px
   );
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
   height: 175px;
   position: relative;
   width: 100px;
