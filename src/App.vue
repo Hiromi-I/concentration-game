@@ -1,3 +1,21 @@
+<script setup lang="ts">
+import { reactive } from "vue";
+import type { Card } from "@/types/card";
+import CardItem from "@/components/CardItem.vue";
+
+let cards: Card[] = reactive([
+  { number: 1, isTurned: false, isPaired: false },
+  { number: 2, isTurned: false, isPaired: false },
+  { number: 3, isTurned: false, isPaired: false },
+  { number: 4, isTurned: false, isPaired: false },
+  { number: 5, isTurned: false, isPaired: false },
+]);
+
+const onCardClick = (index: number) => {
+  cards[index].isTurned = !cards[index].isTurned;
+};
+</script>
+
 <template>
   <header>
     <div class="logo-container">
@@ -12,11 +30,12 @@
   </header>
 
   <main class="card-container">
-    <div
-      v-for="n in 20"
-      :key="n"
-      class="card"
-    ></div>
+    <CardItem
+      v-for="(card, index) in cards"
+      :key="index"
+      v-bind="card"
+      @click="onCardClick(index)"
+    />
   </main>
 </template>
 
@@ -62,19 +81,5 @@
   margin: 0 auto;
   row-gap: 15px;
   width: var(--base-width);
-}
-
-.card {
-  background: repeating-linear-gradient(
-    90deg,
-    #f00,
-    #f00 5px,
-    #f66 0,
-    #f66 6px
-  );
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-  height: 175px;
-  position: relative;
-  width: 100px;
 }
 </style>
