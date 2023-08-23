@@ -23,11 +23,36 @@ export const useCards = defineStore("card", {
   state: () => {
     return {
       cards: getRandomCards(),
+      selectedIndexes: [] as number[],
     };
   },
   actions: {
     turnCard(index: number) {
-      this.cards[index].isTurned = !this.cards[index].isTurned;
+      if (this.cards[index].isTurned || this.cards[index].isPaired) return;
+      if (this.selectedIndexes.length >= 2 || this.selectedIndexes.includes(index)) return;
+
+      this.cards[index].isTurned = true;
+      this.selectedIndexes.push(index);
+
+      if (this.selectedIndexes.length === 2) {
+        this.checkPair();
+      }
+    },
+    checkPair() {
+      const firstCard = this.cards[this.selectedIndexes[0]];
+      const secondCard = this.cards[this.selectedIndexes[1]];
+
+      // アニメーションの為、時間差をつけている
+      setTimeout(() => {
+        if (firstCard.number === secondCard.number) {
+          firstCard.isPaired = true;
+          secondCard.isPaired = true;
+        } else {
+          firstCard.isTurned = false;
+          secondCard.isTurned = false;
+        }
+        this.selectedIndexes = [];
+      }, 1000);
     },
   },
 });

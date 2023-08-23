@@ -17,6 +17,7 @@ const imagePath = new URL(`../assets/images/cat-${props.number}.png`, import.met
         alt="cat image"
         :src="imagePath"
         class="card-inner"
+        :class="{paired: isPaired}"
       />
     </transition>
   </div>
@@ -35,6 +36,7 @@ const imagePath = new URL(`../assets/images/cat-${props.number}.png`, import.met
   height: 175px;
   left: 0;
   position: absolute;
+  user-select: none;
   top: 0;
   transition: transform 0.1s, opacity 0.1s;
   width: 100px;
@@ -48,6 +50,10 @@ const imagePath = new URL(`../assets/images/cat-${props.number}.png`, import.met
     #f66 0,
     #f66 6px
   );
+}
+
+.paired {
+  filter: contrast(50%);
 }
 
 .v-enter-from,
