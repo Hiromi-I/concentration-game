@@ -33,6 +33,28 @@ export const useCards = defineStore("card", {
 
       this.cards[index].isTurned = true;
       this.selectedIndexes.push(index);
+
+      if (this.selectedIndexes.length === 2) {
+        this.checkPair();
+      }
+    },
+    checkPair() {
+      const firstCard = this.cards[this.selectedIndexes[0]];
+      const secondCard = this.cards[this.selectedIndexes[1]];
+
+      if (firstCard.number === secondCard.number) {
+        setTimeout(() => {
+          firstCard.isPaired = true;
+          secondCard.isPaired = true;
+          this.selectedIndexes = [];
+        }, 1000);
+      } else {
+        setTimeout(() => {
+          firstCard.isTurned = false;
+          secondCard.isTurned = false;
+          this.selectedIndexes = [];
+        }, 1000);
+      }
     },
   },
 });
