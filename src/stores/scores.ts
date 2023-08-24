@@ -4,7 +4,7 @@ const get0paddingNumber = (num: number): string => {
   return ('00' + String(num)).slice(-3)
 }
 
-export const useScores = defineStore('score', {
+export const useScoreStore = defineStore('score', {
   state: () => {
     return {
       _trialCount: 0,

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { useScores } from '@/stores/scores'
+import { useScoreStore } from '@/stores/scores'
 
-const { trialCount, pairedCount } = storeToRefs(useScores())
+const { trialCount, pairedCount } = storeToRefs(useScoreStore())
 </script>
 
 <template>

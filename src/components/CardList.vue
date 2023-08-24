@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { useCards } from '@/stores/cards'
+import { useCardStore } from '@/stores/cards'
 import CardItem from './CardItem.vue'
 
-const { turnCard } = useCards()
-const { cards } = storeToRefs(useCards())
+const { turnCard } = useCardStore()
+const { cards } = storeToRefs(useCardStore())
 </script>
 
 <template>

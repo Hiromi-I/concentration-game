@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import type { Card } from '@/types/card'
-import { useScores } from '@/stores/scores'
+import { useScoreStore } from '@/stores/scores'
 
 const CARD_PAIR_SET = 10
 
@@ -20,7 +20,7 @@ const getRandomCards = (): Card[] => {
   return cards
 }
 
-export const useCards = defineStore('card', {
+export const useCardStore = defineStore('card', {
   state: () => {
     return {
       cards: getRandomCards(),
@@ -40,7 +40,7 @@ export const useCards = defineStore('card', {
       }
     },
     checkPair() {
-      const { getCorrect, getIncorrect } = useScores()
+      const { getCorrect, getIncorrect } = useScoreStore()
       const firstCard = this.cards[this.selectedIndexes[0]]
       const secondCard = this.cards[this.selectedIndexes[1]]
 
