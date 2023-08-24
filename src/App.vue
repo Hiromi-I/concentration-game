@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import { storeToRefs } from "pinia";
 import CardItem from "@/components/CardItem.vue";
 import { useCards } from "@/stores/cards";
 import { useScores } from "@/stores/scores";
 
-const { cards, turnCard } = useCards();
-const { trialCount, pairedCount } = useScores();
+const { turnCard } = useCards();
+const { cards } = storeToRefs(useCards());
+const { trialCount, pairedCount } = storeToRefs(useScores());
 
 const onCardClick = (index: number) => {
   turnCard(index);
