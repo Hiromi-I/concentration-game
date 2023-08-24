@@ -17,6 +17,15 @@ export const useScores = defineStore("score", {
     },
     pairedCount(state) {
       return get0paddingNumber(state._pairedCount);
-    }
-  }
+    },
+  },
+  actions: {
+    getCorrect() {
+      this._trialCount += 1;
+      this._pairedCount += 1;
+    },
+    getIncorrect() {
+      this._trialCount += 1;
+    },
+  },
 });
