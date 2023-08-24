@@ -7,34 +7,34 @@ describe('Score Store', () => {
     setActivePinia(createPinia())
   })
 
-  test("initial state and display", () => {
+  test('initial state and display', () => {
     const scoreStore = useScoreStore()
 
     expect(scoreStore._trialCount).toBe(0)
     expect(scoreStore._pairedCount).toBe(0)
-    expect(scoreStore.trialCount).toMatch("000")
-    expect(scoreStore.pairedCount).toMatch("000")
+    expect(scoreStore.trialCount).toMatch('000')
+    expect(scoreStore.pairedCount).toMatch('000')
   })
 
-  test("incorrect", () => {
+  test('incorrect', () => {
     const scoreStore = useScoreStore()
 
     scoreStore.getIncorrect()
 
     expect(scoreStore._trialCount).toBe(1)
     expect(scoreStore._pairedCount).toBe(0)
-    expect(scoreStore.trialCount).toMatch("001")
-    expect(scoreStore.pairedCount).toMatch("000")
+    expect(scoreStore.trialCount).toMatch('001')
+    expect(scoreStore.pairedCount).toMatch('000')
   })
 
-  test("correct", () => {
+  test('correct', () => {
     const scoreStore = useScoreStore()
 
     scoreStore.getCorrect()
 
     expect(scoreStore._trialCount).toBe(1)
     expect(scoreStore._pairedCount).toBe(1)
-    expect(scoreStore.trialCount).toMatch("001")
-    expect(scoreStore.pairedCount).toMatch("001")
+    expect(scoreStore.trialCount).toMatch('001')
+    expect(scoreStore.pairedCount).toMatch('001')
   })
 })
