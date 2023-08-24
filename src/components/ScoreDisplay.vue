@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { storeToRefs } from "pinia";
-import { useScores } from "@/stores/scores";
+import { storeToRefs } from 'pinia'
+import { useScores } from '@/stores/scores'
 
-const { trialCount, pairedCount } = storeToRefs(useScores());
+const { trialCount, pairedCount } = storeToRefs(useScores())
 </script>
 
 <template>
@@ -23,7 +23,7 @@ const { trialCount, pairedCount } = storeToRefs(useScores());
 
 .score {
   color: white;
-  font-family: "Press Start 2P", cursive;
+  font-family: 'Press Start 2P', cursive;
   line-height: 1.8;
   text-align: right;
   margin: 0 auto;
