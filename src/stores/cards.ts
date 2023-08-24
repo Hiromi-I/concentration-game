@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import type { Card } from "@/types/card";
+import { useScores } from "@/stores/scores";
 
 const CARD_PAIR_SET = 10;
 
@@ -39,6 +40,7 @@ export const useCards = defineStore("card", {
       }
     },
     checkPair() {
+      const { getCorrect, getIncorrect } = useScores();
       const firstCard = this.cards[this.selectedIndexes[0]];
       const secondCard = this.cards[this.selectedIndexes[1]];
 
@@ -47,9 +49,11 @@ export const useCards = defineStore("card", {
         if (firstCard.number === secondCard.number) {
           firstCard.isPaired = true;
           secondCard.isPaired = true;
+          getCorrect();
         } else {
           firstCard.isTurned = false;
           secondCard.isTurned = false;
+          getIncorrect();
         }
         this.selectedIndexes = [];
       }, 1000);

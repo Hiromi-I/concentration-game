@@ -1,8 +1,12 @@
 <script setup lang="ts">
+import { storeToRefs } from "pinia";
 import CardItem from "@/components/CardItem.vue";
 import { useCards } from "@/stores/cards";
+import { useScores } from "@/stores/scores";
 
-const { cards, turnCard } = useCards();
+const { turnCard } = useCards();
+const { cards } = storeToRefs(useCards());
+const { trialCount, pairedCount } = storeToRefs(useScores());
 
 const onCardClick = (index: number) => {
   turnCard(index);
@@ -16,8 +20,8 @@ const onCardClick = (index: number) => {
     </div>
     <div class="score-container">
       <p class="score">
-        TRY: 000<br />
-        SCORE: 000
+        TRY: {{ trialCount }}<br />
+        SCORE: {{ pairedCount }}
       </p>
     </div>
   </header>
