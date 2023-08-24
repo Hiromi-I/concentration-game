@@ -1,16 +1,9 @@
 <script setup lang="ts">
 import { storeToRefs } from "pinia";
-import CardItem from "@/components/CardItem.vue";
-import { useCards } from "@/stores/cards";
+import CardList from "@/components/CardList.vue";
 import { useScores } from "@/stores/scores";
 
-const { turnCard } = useCards();
-const { cards } = storeToRefs(useCards());
 const { trialCount, pairedCount } = storeToRefs(useScores());
-
-const onCardClick = (index: number) => {
-  turnCard(index);
-};
 </script>
 
 <template>
@@ -26,13 +19,8 @@ const onCardClick = (index: number) => {
     </div>
   </header>
 
-  <main class="card-container">
-    <CardItem
-      v-for="(card, index) in cards"
-      :key="index"
-      v-bind="card"
-      @click="onCardClick(index)"
-    />
+  <main class="main-container">
+    <CardList />
   </main>
 </template>
 
@@ -70,13 +58,8 @@ const onCardClick = (index: number) => {
   width: var(--base-width);
 }
 
-.card-container {
-  display: grid;
-  column-gap: 15px;
-  grid-template-columns: repeat(10, 100px);
-  grid-template-rows: repeat(2, 175px);
+.main-container {
   margin: 0 auto;
-  row-gap: 15px;
   width: var(--base-width);
 }
 </style>
