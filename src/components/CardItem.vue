@@ -1,23 +1,20 @@
 <script setup lang="ts">
-import type { Card } from "@/types/card";
+import type { Card } from '@/types/card'
 
-const props = defineProps<Card>();
-const imagePath = new URL(`../assets/images/cat-${props.number}.png`, import.meta.url).href;
+const props = defineProps<Card>()
+const imagePath = new URL(`../assets/images/cat-${props.number}.png`, import.meta.url).href
 </script>
 
 <template>
   <li class="card-wrapper">
     <transition>
-      <div
-        v-if="!isTurned"
-        class="card-inner card-back"
-      ></div>
+      <div v-if="!isTurned" class="card-inner card-back"></div>
       <img
         v-else
         alt="cat image"
         :src="imagePath"
         class="card-inner"
-        :class="{paired: isPaired}"
+        :class="{ paired: isPaired }"
       />
     </transition>
   </li>
@@ -38,18 +35,14 @@ const imagePath = new URL(`../assets/images/cat-${props.number}.png`, import.met
   position: absolute;
   user-select: none;
   top: 0;
-  transition: transform 0.1s, opacity 0.1s;
+  transition:
+    transform 0.1s,
+    opacity 0.1s;
   width: 100px;
 }
 
 .card-back {
-  background: repeating-linear-gradient(
-    90deg,
-    #f00,
-    #f00 5px,
-    #f66 0,
-    #f66 6px
-  );
+  background: repeating-linear-gradient(90deg, #f00, #f00 5px, #f66 0, #f66 6px);
 }
 
 .paired {

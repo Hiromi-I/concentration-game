@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import ScoreDisplay from "@/components/ScoreDisplay.vue";
-import CardList from "@/components/CardList.vue";
+import ScoreDisplay from '@/components/ScoreDisplay.vue'
+import CardList from '@/components/CardList.vue'
 </script>
 
 <template>
@@ -16,7 +16,6 @@ import CardList from "@/components/CardList.vue";
   </main>
 </template>
 
-
 <style lang="css">
 :root {
   --base-width: 1135px;
@@ -29,7 +28,7 @@ import CardList from "@/components/CardList.vue";
 
 .logo {
   color: red;
-  font-family: "Monofett", cursive;
+  font-family: 'Monofett', cursive;
   font-size: 60px;
   margin: 0 auto;
   width: var(--base-width);

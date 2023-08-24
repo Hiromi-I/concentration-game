@@ -1,34 +1,34 @@
-import { describe, it, expect } from "vitest";
-import { render } from "@testing-library/vue";
+import { describe, it, expect } from 'vitest'
+import { render } from '@testing-library/vue'
 
-import type { Card } from "@/types/card";
-import CardItem from "@/components/CardItem.vue";
+import type { Card } from '@/types/card'
+import CardItem from '@/components/CardItem.vue'
 
-describe("CardItem", () => {
-  it("renders div.card-back", () => {
-    const props: Card = { number: 1, isTurned: false, isPaired: false };
+describe('CardItem', () => {
+  it('renders div.card-back', () => {
+    const props: Card = { number: 1, isTurned: false, isPaired: false }
 
-    const { container } = render(CardItem, { props });
-    const back = container.querySelector(".card-back");
-    
-    expect(back).toBeInTheDocument();
-  });
+    const { container } = render(CardItem, { props })
+    const back = container.querySelector('.card-back')
 
-  it("renders img", () => {
-    const props: Card = { number: 1, isTurned: true, isPaired: false };
+    expect(back).toBeInTheDocument()
+  })
 
-    const { getByRole } = render(CardItem, { props });
-    const image = getByRole("img");
+  it('renders img', () => {
+    const props: Card = { number: 1, isTurned: true, isPaired: false }
 
-    expect(image).toBeInTheDocument();
-  });
+    const { getByRole } = render(CardItem, { props })
+    const image = getByRole('img')
 
-  it("renders img.paired", () => {
-    const props: Card = { number: 1, isTurned: true, isPaired: true };
+    expect(image).toBeInTheDocument()
+  })
 
-    const { container } = render(CardItem, { props });
-    const image = container.querySelector(".paired");
+  it('renders img.paired', () => {
+    const props: Card = { number: 1, isTurned: true, isPaired: true }
 
-    expect(image).toBeInTheDocument();
-  });
-});
+    const { container } = render(CardItem, { props })
+    const image = container.querySelector('.paired')
+
+    expect(image).toBeInTheDocument()
+  })
+})
