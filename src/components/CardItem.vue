@@ -6,7 +6,7 @@ const imagePath = new URL(`../assets/images/cat-${props.number}.png`, import.met
 </script>
 
 <template>
-  <div class="card-wrapper">
+  <li class="card-wrapper">
     <transition>
       <div
         v-if="!isTurned"
@@ -20,7 +20,7 @@ const imagePath = new URL(`../assets/images/cat-${props.number}.png`, import.met
         :class="{paired: isPaired}"
       />
     </transition>
-  </div>
+  </li>
 </template>
 
 <style scoped>
