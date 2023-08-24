@@ -28,7 +28,7 @@ describe('Card Store', () => {
   test('turn a card', () => {
     const cardStore = useCardStore()
     const targetNumber = 3
-    const targetIndex = cardStore.cards.findIndex(({number}) => number === targetNumber)
+    const targetIndex = cardStore.cards.findIndex(({ number }) => number === targetNumber)
 
     cardStore.turnCard(targetIndex)
 
@@ -53,8 +53,8 @@ describe('Card Store', () => {
 
     cardStore.turnCard(targetIndexes[0])
     cardStore.turnCard(targetIndexes[1])
-    await new Promise(resolve => setTimeout(resolve, 1200))
-    
+    await new Promise((resolve) => setTimeout(resolve, 1200))
+
     expect(cardStore.cards[targetIndexes[0]].isTurned).toBeTruthy()
     expect(cardStore.cards[targetIndexes[1]].isTurned).toBeTruthy()
     expect(cardStore.cards[targetIndexes[0]].isPaired).toBeTruthy()
