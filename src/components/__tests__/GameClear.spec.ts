@@ -4,11 +4,11 @@ import { render } from '@testing-library/vue'
 import GameClear from '@/components/GameClear.vue'
 
 describe('CardList', () => {
-  test("invisible when game is not cleared", () => {
+  test('invisible when game is not cleared', () => {
     const initialState = {
       score: {
         _trialCount: 20,
-        _pairedCount: 8,
+        _pairedCount: 8
       }
     }
     createTestingPinia({ initialState })
@@ -19,11 +19,11 @@ describe('CardList', () => {
     expect(title).not.toBeInTheDocument()
   })
 
-  test("visible when game is cleared", () => {
+  test('visible when game is cleared', () => {
     const initialState = {
       score: {
         _trialCount: 15,
-        _pairedCount: 10,
+        _pairedCount: 10
       }
     }
     createTestingPinia({ initialState })

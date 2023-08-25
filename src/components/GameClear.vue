@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { computed } from "vue"
-import { useCardStore } from "@/stores/cards"
-import { useScoreStore } from "@/stores/scores"
+import { computed } from 'vue'
+import { useCardStore } from '@/stores/cards'
+import { useScoreStore } from '@/stores/scores'
 
 const cardStore = useCardStore()
 const scoreStore = useScoreStore()
@@ -17,7 +17,12 @@ const reset = () => {
   <div v-if="isVisible" class="overlay">
     <div class="card">
       <h3 class="card-title">Game Clear</h3>
-      <img src="@/assets/images/congratulations.gif" width="320" height="300" class="congratulations-image" />
+      <img
+        src="@/assets/images/congratulations.gif"
+        width="320"
+        height="300"
+        class="congratulations-image"
+      />
       <button @click="reset" class="reset-button">Replay</button>
     </div>
   </div>
