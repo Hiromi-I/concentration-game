@@ -14,3 +14,7 @@ html {
   width: 100vw;
   height: 100vh;
 }
+
+:root {
+  --base-width: 1135px;
+}

@@ -19,10 +19,6 @@ import GameClear from '@/components/GameClear.vue'
 </template>
 
 <style lang="css">
-:root {
-  --base-width: 1135px;
-}
-
 .logo-container {
   background-color: black;
   padding-bottom: 10px;
