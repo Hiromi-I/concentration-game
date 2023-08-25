@@ -45,7 +45,6 @@ const reset = () => {
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-  font-family: 'Press Start 2P', cursive;
   padding: 15px;
   text-align: center;
   width: 400px;
