@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import ScoreDisplay from '@/components/ScoreDisplay.vue'
 import CardList from '@/components/CardList.vue'
+import GameClear from '@/components/GameClear.vue'
 </script>
 
 <template>
@@ -14,6 +15,7 @@ import CardList from '@/components/CardList.vue'
   <main class="main-container">
     <CardList />
   </main>
+  <GameClear />
 </template>
 
 <style lang="css">
