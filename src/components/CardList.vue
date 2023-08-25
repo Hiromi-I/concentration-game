@@ -9,7 +9,7 @@ const { cards } = storeToRefs(useCardStore())
 
 <template>
   <ul class="card-container">
-    <CardItem v-for="(card, index) in cards" :key="index" v-bind="card" @click="turnCard(index)" />
+    <CardItem v-for="(card, index) in cards" :key="`${index}-${card.number}`" v-bind="card" @click="turnCard(index)" />
   </ul>
 </template>
 
