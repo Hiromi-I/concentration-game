@@ -21,7 +21,6 @@ import GameClear from '@/components/GameClear.vue'
 <style lang="css">
 .logo-container {
   background-color: black;
-  padding-bottom: 10px;
 }
 
 .logo {
@@ -29,6 +28,7 @@ import GameClear from '@/components/GameClear.vue'
   font-family: 'Monofett', cursive;
   font-size: 60px;
   margin: 0 auto;
+  padding: 20px 0 30px;
   width: var(--base-width);
 }
 
