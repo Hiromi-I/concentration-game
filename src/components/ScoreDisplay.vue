@@ -23,7 +23,6 @@ const { trialCount, pairedCount } = storeToRefs(useScoreStore())
 
 .score {
   color: white;
-  font-family: 'Press Start 2P', cursive;
   line-height: 1.8;
   text-align: right;
   margin: 0 auto;
